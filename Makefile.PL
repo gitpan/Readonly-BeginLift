@@ -6,7 +6,9 @@ WriteMakefile
           'VERSION_FROM' => 'lib/Readonly/BeginLift.pm',
           'PREREQ_PM' => {
                            'Devel::BeginLift' => '0.001002',
-                           'Test::More' => 0
+                           'Readonly' => '1.03',
+                           'Test::More' => 0,
+                           'parent' => '0.221'
                          },
           'INSTALLDIRS' => 'site',
           'EXE_FILES' => [],

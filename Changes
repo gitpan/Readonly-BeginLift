@@ -1,5 +1,8 @@
 Revision history for Readonly-BeginLift
 
+0.02    February 11, 2010
+        - Include the dependency on parent.pm and Readonly
+
 0.01    February 11, 2010
         - Allow Readonly to execute at BEGIN time.
 
