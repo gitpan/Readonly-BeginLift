@@ -4,10 +4,21 @@ use warnings;
 use strict;
 
 use Readonly;
-use Devel::BeginLift 'Readonly';
+use Devel::BeginLift ();
+Devel::BeginLift->setup_for(
+    Readonly => [
+        qw(
+          Readonly
+          Scalar
+          Array
+          Hash
+          )
+    ]
+);
 
 use parent 'Exporter';
-our @EXPORT = 'Readonly';
+our @EXPORT    = 'Readonly';
+our @EXPORT_OK = qw/Scalar Array Hash Scalar1 Array1 Hash1/;
 
 =head1 NAME
 
@@ -15,19 +26,20 @@ Readonly::BeginLift - Readonly at BEGIN time
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 =head1 SYNOPSIS
 
     use Readonly::BeginLift;
-    Readonly my $VAR => 'foo';
-    BEGIN { print $VAR }
+    Readonly         my $VAR  => 'foo';
+    Readonly::Scalar my $VAR2 => 'bar';
+    BEGIN { print $VAR, $VAR2 }
     __END__
-    foo
+    foo,bar
 
 =head1 DESCRIPTION
 
